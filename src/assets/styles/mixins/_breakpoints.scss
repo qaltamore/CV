@@ -1,0 +1,25 @@
+@use 'sass:map';
+
+$breakpoints: (
+  'mob': 768px,
+  'tab': 769px,
+  'desk': 1024px
+);
+
+@mixin breakpoint($breakpoint) {
+  @if ($breakpoint == 'mob') {
+    @media (max-width: map.get($breakpoints, 'mob')) {
+      @content;
+    }
+  }
+  @if ($breakpoint == 'tab') {
+    @media (min-width: map.get($breakpoints, 'tab')) and (max-width: map.get($breakpoints, 'desk') - 1px) {
+      @content;
+    }
+  }
+  @else if ($breakpoint == 'desk') {
+    @media (min-width: map.get($breakpoints, 'desk')) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+@use 'sass:math';
+
+$mobile-base-width: 360px;
+$mobile-base-height: 640px;
+
+$desktop-base-width: 1440px;
+$desktop-base-height: 900px;
+
+// --- BASE FUNCTION --- //
+
+// dynamic pixel function
+@function dpx($base-size, $base-value, $unit, $mode: 'min') {
+  $min-rem: math.div($base-size, 16px) * 1rem;
+  $new-value: math.div($base-size, $base-value) * $unit;
+
+  @if $mode == 'max' {
+    @return min($min-rem, $new-value);
+  } @else {
+    @return max($min-rem, $new-value);
+  }
+}
+
+// --- MOBILE --- //
+
+// mobile viewport width
+@function mvw($size) {
+  @return dpx($size, $mobile-base-width, 100vw, 'min');
+}
+
+// mobile viewport height
+@function mvh($size) {
+  @return dpx($size, $mobile-base-height, 100dvh, 'min');
+}
+
+// --- DESKTOP --- //
+
+// desktop rem
+@function drem($size) {
+  @return math.div($size, 16px) * 1rem;
+}
+
+// desktop viewport width
+@function dvw($size) {
+  @return dpx($size, $desktop-base-width, 100vw, 'max');
+}
+
+// desktop viewport height
+@function dvh($size) {
+  @return dpx($size, $desktop-base-height, 100dvh, 'max');
+}
