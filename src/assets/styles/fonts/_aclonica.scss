@@ -1,0 +1,5 @@
+@use '../mixins/fontface' as *;
+
+@include fontface('aclonica', 'Aclonica-Regular', 'aclonica', 400);
+
+$font-aclonica: 'aclonica'

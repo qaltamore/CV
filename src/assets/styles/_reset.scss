@@ -1,0 +1,82 @@
+/* Universal box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevents unwanted horizontal scrolling and stabilises text rendering */
+html {
+  color-scheme: light dark;
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+}
+
+/* Clean base for the main body of the page */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Seamless media management (images, SVG, videos) */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Disables the default style for forms and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Lists without bullet points by default */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Links and typography */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Text box management (prevents horizontal resizing that breaks the layout) */
+textarea {
+  resize: vertical;
+}
+
+/* Removes the animation for users who have enabled motion reduction */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

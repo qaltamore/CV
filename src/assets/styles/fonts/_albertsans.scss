@@ -1,0 +1,6 @@
+@use '../mixins/fontface' as *;
+
+@include fontface('albertsans', 'AlbertSans-Regular', 'albertsans', 400);
+@include fontface('albertsans', 'AlbertSans-Italic', 'albertsans', 400, italic);
+
+$font-albertsans: 'albertsans'

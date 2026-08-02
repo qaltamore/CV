@@ -13,6 +13,14 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@styles': fileURLToPath(new URL('./src/assets/styles', import.meta.url)),
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "@/assets/styles/global.scss" as *;`
+      }
+    }
+  }
 })
