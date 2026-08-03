@@ -6,17 +6,19 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
+  server: {
+    host: true,
+  },
   plugins: [
     vue(),
     vueDevTools(),
   ],
-  server: {
-    host: true,
-  },
+  base: './',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
       '@styles': fileURLToPath(new URL('./src/assets/styles', import.meta.url)),
+      '@images': fileURLToPath(new URL('./src/assets/images', import.meta.url)),
     },
   },
   css: {

@@ -7,7 +7,8 @@ export function wrapLetters(text: string, startIndex = 0): { html: string, nextI
       if (letter === ' ') return ' '
       else {
         currentIndex++
-        return `<span class="active" style="--i: ${currentIndex}">${letter}</span>`
+        const randomIndex: number = Math.floor(Math.random() * 9)
+        return `<span class="active" style="--i: ${randomIndex}">${letter}</span>`
       }
     })
     .join('')
