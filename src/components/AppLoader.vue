@@ -47,7 +47,7 @@ $corner-desk-padding: drem(24px);
 .app-loader {
   width: 100%;
   height: 100%;
-  background: #a55757;
+  background-color: #852310;
 
   display: flex;
   flex-direction: column;
@@ -127,14 +127,12 @@ $corner-desk-padding: drem(24px);
     position: absolute;
     top: drem(40px);
     right: drem(40px);
-    width: drem(60px);
-
-    animation: bounceInOut 2s infinite ease-in-out;
+    width: drem(90px);
 
     @include breakpoint('mob') {
       top: mvw(16px);
       right: mvw(16px);
-      width: mvw(40px);
+      width: mvw(60px);
     }
   }
 

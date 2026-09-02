@@ -1,48 +1,34 @@
-# CV
+# Short Presentation
 
-This template should help get you started developing with Vue 3 in Vite.
+## Who am I ?
+My name is Quentin Altamore. I'm a Front-End developer in the area around Bordeaux, who loves his work and loves to evolve.
+JavaScript and CSS are my favorite languages, but I studied and used a lot of languages, searching for the one which would suit me the best.
+I'm not a Full-Stack developer, but I'm not afraid to work on subjects and projects that would need languages I do not master such as Node.js.
+I have a good overview on a lot of languages, and I'm a fast learner. I'm pretty confident about my ability to adapt myself in a new dev environment.
 
-## Recommended IDE Setup
+If you're reading those lines, I hope that my work will catch your interest !
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Why this website ?
+I decided to create this website to let know everyone who wants, what I am capable of, and what's the time I need to develop things.
+You will also be able to study, through this website, the Git and the Figma, the way I can work, and how I organize myself as everything has been done by me, except the images (for the most part).
 
-## Recommended Browser Setup
+## About the code
+I made a "desktop first" mockup, because I think the most part of people who come across this website will do it on a desktop, but I managed a mobile version too, in a responsive way.
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+To check my website rendering, I usually check on :
+- Desktop
+  - 1366 x 768 (Laptops)
+  - 1440 x 900 (MacBooks)
+  - 1920 x 1080 (Standard)
+- Mobile
+  - iPhone SE
+  - iPhone 12
+  - iPhone 15 Pro Max
+  - Samsung Galaxy S8+
 
-## Type Support for `.vue` Imports in TS
+## Last words
+Please, be kind for the Figma as I am not a designer and I didn't take the time to make it 100% clean.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+If anything is missing to you, that would help you to understand how I think or work, feel free to contact me on my email : altamore.quentin@gmail.com
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+I hope you will have a good time there !
