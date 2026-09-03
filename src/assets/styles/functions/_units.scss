@@ -3,6 +3,9 @@
 $mobile-base-width: 360px;
 $mobile-base-height: 640px;
 
+$tablet-base-width: 834px;
+$tablet-base-height: 1194px;
+
 $desktop-base-width: 1440px;
 $desktop-base-height: 900px;
 
@@ -15,8 +18,10 @@ $desktop-base-height: 900px;
 
   @if $mode == 'max' {
     @return min($min-rem, $new-value);
-  } @else {
+  } @else if $mode == 'min' {
     @return max($min-rem, $new-value);
+  } @else {
+    @return $new-value;
   }
 }
 
@@ -32,6 +37,18 @@ $desktop-base-height: 900px;
   @return dpx($size, $mobile-base-height, 100dvh, 'min');
 }
 
+// --- TABLET --- //
+
+// mobile viewport width
+@function tvw($size) {
+  @return dpx($size, $tablet-base-width, 100vw, 'min');
+}
+
+// mobile viewport height
+@function tvh($size) {
+  @return dpx($size, $tablet-base-height, 100dvh, 'min');
+}
+
 // --- DESKTOP --- //
 
 // desktop rem
@@ -41,7 +58,7 @@ $desktop-base-height: 900px;
 
 // desktop viewport width
 @function dvw($size) {
-  @return dpx($size, $desktop-base-width, 100vw, 'max');
+  @return dpx($size, $desktop-base-width, 100vw, '');
 }
 
 // desktop viewport height
