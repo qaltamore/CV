@@ -12,8 +12,18 @@ $breakpoints: (
       @content;
     }
   }
-  @if ($breakpoint == 'tab') {
+  @else if ($breakpoint == 'tab') {
     @media (min-width: map.get($breakpoints, 'tab')) and (max-width: map.get($breakpoints, 'desk') - 1px) {
+      @content;
+    }
+  }
+  @else if ($breakpoint == 'mob-tab') {
+    @media (max-width: map.get($breakpoints, 'desk') - 1px) {
+      @content;
+    }
+  }
+  @else if ($breakpoint == 'tab-desk') {
+    @media (min-width: map.get($breakpoints, 'tab')) {
       @content;
     }
   }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppLoader from '@/components/AppLoader.vue'
+import TmpLoader from '@/components/TmpLoader.vue'
 import RealWebsite from '@/components/RealWebsite.vue'
 
 import { onBeforeMount, ref } from 'vue'
@@ -13,7 +13,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <AppLoader v-if="!showWebsite"></AppLoader>
+  <TmpLoader v-if="!showWebsite"></TmpLoader>
   <RealWebsite v-else></RealWebsite>
 </template>
 

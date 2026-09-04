@@ -1,8 +1,12 @@
 <script setup lang="ts">
+import AppLoader from '@/components/AppLoader.vue'
 </script>
 
 <template>
   <div class="real-website">
+    <!-- Loader -->
+    <AppLoader />
+
     <!-- Header -->
     <header class="real-website__nav"></header>
 
@@ -17,12 +21,16 @@
 
     <!-- Background -->
     <div class="real-website__background">
-      <!-- border -->
-      <img :src="$getImg(`border-${$env.type}.svg`)" alt="border" class="real-website__img-bg-border" />
       <!-- grid -->
-      <img :src="$getImg(`grid-${$env.type}.png`)" alt="grid" class="real-website__img-bg-grid" />
+      <AppImage class="real-website__img-bg-grid"
+                :src="`grid-${$env.type}.png`" alt="grid" />
+      <!-- border -->
+      <AppImage class="real-website__img-bg-border"
+                :src="`border-${$env.type}.svg`" alt="border" />
       <!-- leather -->
-      <img :src="$getImg('bg-leather.jpg')" alt="background" class="real-website__img-bg-leather" />
+      <AppImage class="real-website__img-bg-leather"
+                src="bg-leather.jpg" alt="leather"
+                cover />
     </div>
   </div>
 </template>
@@ -65,11 +73,7 @@
     width: dvw(1304px);
     transform: translateX(-50%) translateY(-47%);
 
-    @include breakpoint('mob') {
-      width: 100%;
-    }
-
-    @include breakpoint('tab') {
+    @include breakpoint('mob-tab') {
       width: 100%;
     }
   }
@@ -83,13 +87,17 @@
 
     @include breakpoint('mob') {
       bottom: mvh(6px);
+      width: mvw(348px);
+    }
+
+    @include breakpoint('tab') {
+      bottom: tvh(16px);
     }
   }
 
   &__img-bg-leather {
     width: 100%;
     height: 100%;
-    object-fit: cover;
   }
 }
 </style>

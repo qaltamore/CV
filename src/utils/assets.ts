@@ -1,3 +1,8 @@
+const images = import.meta.glob<string>(
+  '/src/assets/images/**',
+  { eager: true, import: 'default' }
+)
+
 export const getImg = (name: string): string => {
-  return new URL(`/src/assets/images/${name}`, import.meta.url).href
+  return images[`/src/assets/images/${name}`] || ''
 }
