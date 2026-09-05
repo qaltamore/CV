@@ -21,5 +21,9 @@ export const useLoaderStore = defineStore('loader', () => {
     return loadedImages.value === imagesToLoad.value
   })
 
-  return { implementsImage, loadedImage, hasLoaded }
+  const progress = computed((): number => {
+    return (loadedImages.value / imagesToLoad.value) * 100
+  })
+
+  return { implementsImage, loadedImage, hasLoaded, progress }
 })

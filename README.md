@@ -17,14 +17,17 @@ I made a "desktop first" mockup, because I think the most part of people who com
 
 To check my website rendering, I usually check on :
 - Desktop
+  - 1024 x 768 (iPad landscape)
   - 1366 x 768 (Laptops)
   - 1440 x 900 (MacBooks)
   - 1920 x 1080 (Standard)
 - Mobile
-  - iPhone SE
-  - iPhone 12
-  - iPhone 15 Pro Max
-  - Samsung Galaxy S8+
+  - 375 x 667 (iPhone SE)
+  - 390 x 884 (iPhone 12 Pro)
+  - 430 x 932 (iPhone 15 Pro Max)
+  - 360 x 740 (Samsung Galaxy S8+)
+- Tablet
+  - 820 x 1180 (iPad Air)
 
 ## Last words
 Please, be kind for the Figma as I am not a designer and I didn't take the time to make it 100% clean.

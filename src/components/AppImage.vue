@@ -25,6 +25,9 @@ withDefaults(defineProps<Props>(), {
   &__img {
     display: inline-block;
     width: 100%;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-drag: none;
 
     &.cover {
       height: 100%;
