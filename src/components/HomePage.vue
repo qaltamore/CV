@@ -2,6 +2,7 @@
 import AppImage from '@/components/AppImage.vue'
 </script>
 
+<!-- HTML -->
 <template>
   <section class="home">
     <div class="home__welcome">
@@ -57,6 +58,7 @@ import AppImage from '@/components/AppImage.vue'
   </section>
 </template>
 
+<!-- CSS -->
 <style scoped lang="scss">
 .home {
   width: 100%;
@@ -66,6 +68,18 @@ import AppImage from '@/components/AppImage.vue'
   justify-content: space-between;
   align-items: flex-start;
   padding: dvh(160px) dvw(80px) 0;
+
+  @include breakpoint('mob') {
+    flex-direction: column;
+    gap: mvh(16px);
+    padding: mvh(60px) mvw(16px) mvh(16px);
+  }
+
+  @include breakpoint('tab') {
+    flex-direction: column;
+    gap: tvh(40px);
+    padding: tvh(146px) tvw(40px) tvh(32px);
+  }
 
   @include breakpoint('tiny-laptop') {
     padding: dvh(140px) dvw(80px) 0;
@@ -78,16 +92,7 @@ import AppImage from '@/components/AppImage.vue'
     border-radius: drem(20px);
   }
 
-  &__welcome {
-    padding: dvh(52px) dvw(42px);
-    width: dvw(760px);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: dvh(32px);
-  }
-
+  // Transparent img background in the divs (Feather & Hourglass)
   &__img-bg-block {
     position: absolute;
     left: 50%;
@@ -105,9 +110,27 @@ import AppImage from '@/components/AppImage.vue'
     }
   }
 
+  &__welcome {
+    padding: dvh(52px) dvw(42px);
+    width: dvw(760px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: dvh(32px);
+
+    @include breakpoint('mob-tab') {
+      width: 100%;
+    }
+  }
+
   &__realization {
     width: dvw(440px);
     padding: dvh(52px) dvw(30px);
+
+    @include breakpoint('mob-tab') {
+      width: 100%;
+    }
 
     & h3 {
       margin-bottom: dvh(64px);

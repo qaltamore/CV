@@ -1,0 +1,10 @@
+@use 'sass:map';
+
+$z: (
+  'loader': 100,
+  'navbar': 50
+);
+
+@function z($label) {
+  @return map.get($z, $label);
+}

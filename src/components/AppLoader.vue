@@ -90,7 +90,7 @@ $loader-tock-anim-duration: 5s;
 
 .app-loader {
   position: fixed;
-  z-index: 100;
+  z-index: z('loader');
   inset: 0;
   width: 100%;
   height: 100%;

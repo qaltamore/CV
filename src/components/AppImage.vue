@@ -12,6 +12,7 @@ withDefaults(defineProps<Props>(), {
 })
 </script>
 
+<!-- HTML -->
 <template>
   <div class="app-image">
       <img class="app-image__img" :class="{ cover }"
@@ -20,6 +21,7 @@ withDefaults(defineProps<Props>(), {
   </div>
 </template>
 
+<!-- CSS -->
 <style scoped lang="scss">
 .app-image {
   &__img {

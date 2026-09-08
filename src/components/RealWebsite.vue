@@ -4,6 +4,7 @@ import NavBar from '@/components/NavBar.vue'
 import HomePage from '@/components/HomePage.vue'
 </script>
 
+<!-- HTML -->
 <template>
   <section class="real-website">
     <!-- Loader -->
@@ -35,10 +36,12 @@ import HomePage from '@/components/HomePage.vue'
   </section>
 </template>
 
+<!-- CSS -->
 <style scoped lang="scss">
 .real-website {
   width: 100%;
   min-height: 100%;
+  overflow: hidden;
 
   /** NAV **/
   &__nav {

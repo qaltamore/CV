@@ -1,6 +1,7 @@
 <script setup lang="ts">
 </script>
 
+<!-- HTML -->
 <template>
   <header class="nav-bar">
     <h1 class="nav-bar__page-name">Accueil</h1>
@@ -8,9 +9,11 @@
   </header>
 </template>
 
+<!-- CSS -->
 <style scoped lang="scss">
 .nav-bar {
   position: fixed;
+  z-index: z('navbar');
   width: 100%;
   height: drem(80px);
   background-image: url("@images/nav-bg.jpg");
