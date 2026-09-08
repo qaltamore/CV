@@ -68,9 +68,9 @@ const openDoor = () => {
 <template>
   <div class="app-loader" :class="{ remove: removeLoader }" @click="openDoor">
     <!-- Background dungeon -->
-    <AppImage :src="`loader/loader-bg-${$env.type}.jpg`" class="app-loader__img-bg" />
+    <AppImage :src="`loader/loader-bg-${$env.type}.jpg`" class="app-loader__img-bg" prio />
     <!-- Doors -->
-    <AppImage v-for="i of 8" :key="`door-${i}`" :src="`loader/door-${i}.png`"
+    <AppImage v-for="i of 8" :key="`door-${i}`" :src="`loader/door-${i}.png`" prio
               class="app-loader__img-door" :class="[`app-loader__img-door--${i}`, { active: activeDoor === i, animate: tockAnimation }]" />
     <!-- Progress Bar -->
     <div :style="{ width: `${getProgress}%` }" class="app-loader__progress-bar"></div>

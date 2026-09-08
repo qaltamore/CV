@@ -5,6 +5,7 @@ interface Props {
   src: string
   alt?: string
   cover?: boolean
+  prio?: boolean
 }
 
 withDefaults(defineProps<Props>(), {
@@ -17,6 +18,8 @@ withDefaults(defineProps<Props>(), {
   <div class="app-image">
       <img class="app-image__img" :class="{ cover }"
            :src="$getImg(src)" :alt="alt"
+           :fetchpriority="prio ? 'high' : 'auto'"
+           :loading="prio ? 'eager' : 'lazy'"
            v-tracker="$getImg(src)" />
   </div>
 </template>
