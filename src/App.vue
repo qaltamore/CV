@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import TmpLoader from '@/components/TmpLoader.vue'
+import ConstructLoader from '@/components/ConstructLoader.vue'
 import RealWebsite from '@/components/RealWebsite.vue'
 
 import { onBeforeMount, ref } from 'vue'
@@ -13,7 +13,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <TmpLoader v-if="!showWebsite"></TmpLoader>
+  <ConstructLoader v-if="!showWebsite"></ConstructLoader>
   <RealWebsite v-else></RealWebsite>
 </template>
 

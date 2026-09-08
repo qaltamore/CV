@@ -13,26 +13,24 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="tmp-loader">
+  <div class="construct-loader">
     <span class="corner corner--top corner--left"></span>
     <span class="corner corner--top corner--right"></span>
     <span class="corner corner--bottom corner--left"></span>
     <span class="corner corner--bottom corner--right"></span>
 
     <!-- Logo -->
-    <img :src="$getImg('logo.png')" alt="logo" class="tmp-loader__img-logo" />
+    <img :src="$getImg('logo.png')" alt="logo" class="construct-loader__img-logo" />
 
     <!-- Text -->
-    <div class="tmp-loader__name">
+    <div class="construct-loader__info-text">
       <h1 ref="firstLine">SITE EN</h1>
       <h1 ref="secondLine">CONSTRUCTION</h1>
-<!--      <h1 ref="firstLine">Quentin</h1>
-      <h1 ref="secondLine">Altamore</h1>-->
     </div>
 
     <!-- Dots -->
-    <div class="tmp-loader__dots-wrapper">
-      <div v-for="index of 3" :key="`dot-${index}`" class="tmp-loader__dot"></div>
+    <div class="construct-loader__dots-wrapper">
+      <div v-for="index of 3" :key="`dot-${index}`" class="construct-loader__dot"></div>
     </div>
   </div>
 </template>
@@ -44,7 +42,7 @@ onMounted(() => {
 $corner-mob-padding: mvw(8px);
 $corner-desk-padding: drem(24px);
 
-.tmp-loader {
+.construct-loader {
   width: 100%;
   height: 100%;
   background-color: #852310;
@@ -137,16 +135,15 @@ $corner-desk-padding: drem(24px);
   }
 
   // Text at middle
-  &__name {
+  &__info-text {
+    font-size: drem(80px);
+    text-align: center;
+
+    @include breakpoint('mob') {
+      font-size: mvw(36px);
+    }
 
     & > * {
-      font-family: $f-title;
-      font-size: drem(80px);
-      text-align: center;
-
-      @include breakpoint('mob') {
-        font-size: mvw(36px);
-      }
 
       & :deep(span) {
         display: inline-block;
