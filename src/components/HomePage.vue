@@ -41,7 +41,7 @@ import AppImage from '@/components/AppImage.vue'
         <!-- Site -->
         <div class="home__time-info">
           <h4 class="home__time-part-name">Site</h4>
-          <h4 class="home__time-spent">8h</h4>
+          <h4 class="home__time-spent">9h</h4>
         </div>
         <!-- Animations -->
         <div class="home__time-info">

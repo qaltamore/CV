@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { useLoaderStore } from '@/stores/loader'
 import { computed, onMounted, ref } from 'vue'
+import { getAudio } from '@/utils/assets.ts'
 
 // CONST
 const MINIMAL_WAIT = 1000 // minimal wait on the loader, even if we loaded all the images
 const PROGRESS_TICK = 10 // interval tick
 const TOTAL_DOORS = 8 // number of door images
 const DOORS_ANIMATION_SPEED = 80 // interval tick
-const OPENING_DOOR_AUDIO = new Audio('/src/assets/audio/opening-door.mp3')
+const OPENING_DOOR_AUDIO = new Audio(getAudio('opening-door.mp3'))
 
 // REFS
 const activeDoor = ref(1)
@@ -70,7 +71,7 @@ const openDoor = () => {
     <!-- Background dungeon -->
     <AppImage :src="`loader/loader-bg-${$env.type}.jpg`" class="app-loader__img-bg" prio />
     <!-- Doors -->
-    <AppImage v-for="i of 8" :key="`door-${i}`" :src="`loader/door-${i}.png`" prio
+    <AppImage v-for="i of 8" :key="`door-${i}`" :src="`loader/door-${i}.png`" :prio="i === 1"
               class="app-loader__img-door" :class="[`app-loader__img-door--${i}`, { active: activeDoor === i, animate: tockAnimation }]" />
     <!-- Progress Bar -->
     <div :style="{ width: `${getProgress}%` }" class="app-loader__progress-bar"></div>
@@ -136,6 +137,7 @@ $loader-tock-anim-duration: 5s;
     cursor: pointer;
     opacity: 0;
 
+    will-change: opacity, transform;
     animation: shakingDoor $loader-tock-anim-duration linear infinite;
     animation-play-state: paused;
     transform-origin: center 60%;
