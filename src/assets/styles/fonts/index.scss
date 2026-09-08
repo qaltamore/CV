@@ -1,5 +1,102 @@
+@use '../mixins/breakpoints' as *;
+@use '../functions/units' as *;
 @use 'aclonica' as *;
 @use 'albertsans' as *;
 
 $f-title: $font-aclonica, serif;
 $f-global: $font-albertsans, sans-serif;
+
+h1 {
+  font-family: $font-aclonica;
+  font-size: drem(48px);
+  font-weight: normal;
+  line-height: normal;
+  transform: translateY(10%);
+
+  @include breakpoint('mob') {
+    font-size: mvw(32px);
+  }
+
+  @include breakpoint('tab') {
+    font-size: tvw(48px);
+  }
+
+  @include breakpoint('tab-land') {
+    font-size: dvh(48px);
+  }
+}
+
+h2 {
+  font-family: $font-aclonica;
+  font-size: drem(40px);
+  font-weight: normal;
+  line-height: normal;
+
+  @include breakpoint('mob') {
+    font-size: mvw(28px);
+  }
+
+  @include breakpoint('tab') {
+    font-size: tvw(40px);
+  }
+
+  @include breakpoint('tab-land') {
+    font-size: dvh(40px);
+  }
+}
+
+h3 {
+  font-family: $font-aclonica;
+  font-size: drem(32px);
+  font-weight: normal;
+  line-height: normal;
+
+  @include breakpoint('mob') {
+    font-size: mvw(24px);
+  }
+
+  @include breakpoint('tab') {
+    font-size: tvw(32px);
+  }
+
+  @include breakpoint('tab-land') {
+    font-size: dvh(32px);
+  }
+}
+
+h4 {
+  font-family: $font-aclonica;
+  font-size: drem(24px);
+  font-weight: normal;
+  line-height: normal;
+
+  @include breakpoint('mob') {
+    font-size: mvw(20px);
+  }
+
+  @include breakpoint('tab') {
+    font-size: tvw(24px);
+  }
+
+  @include breakpoint('tab-land') {
+    font-size: dvh(24px);
+  }
+}
+
+p {
+  font-family: $font-albertsans;
+  font-size: drem(16px);
+  line-height: normal;
+
+  @include breakpoint('mob') {
+    font-size: mvw(14px);
+  }
+
+  @include breakpoint('tab') {
+    font-size: tvw(16px);
+  }
+
+  @include breakpoint('tab-land') {
+    font-size: dvh(16px);
+  }
+}

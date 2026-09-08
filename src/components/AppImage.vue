@@ -23,7 +23,6 @@ withDefaults(defineProps<Props>(), {
 <style scoped lang="scss">
 .app-image {
   &__img {
-    display: inline-block;
     width: 100%;
     -webkit-tap-highlight-color: transparent;
     user-select: none;

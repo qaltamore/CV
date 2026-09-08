@@ -1,29 +1,35 @@
 @use 'sass:map';
 
 $breakpoints: (
-  'mob': 768px,
-  'tab': 769px,
-  'desk': 1024px
+  'tab': 768px, // tablet portrait
+  'tab-land': 1024px, // tablet landscape (use dvh for fonts)
+  'tiny-laptop': 1280px, // tiny laptop (use drem for fonts)
+  'desk': 1366px // laptop and better (use drem for fonts)
 );
 
 @mixin breakpoint($breakpoint) {
   @if ($breakpoint == 'mob') {
-    @media (max-width: map.get($breakpoints, 'mob')) {
+    @media (max-width: map.get($breakpoints, 'tab') - 1px) {
       @content;
     }
   }
   @else if ($breakpoint == 'tab') {
-    @media (min-width: map.get($breakpoints, 'tab')) and (max-width: map.get($breakpoints, 'desk') - 1px) {
+    @media (min-width: map.get($breakpoints, 'tab')) and (max-width: map.get($breakpoints, 'tab-land') - 1px) {
       @content;
     }
   }
   @else if ($breakpoint == 'mob-tab') {
-    @media (max-width: map.get($breakpoints, 'desk') - 1px) {
+    @media (max-width: map.get($breakpoints, 'tab-land') - 1px) {
       @content;
     }
   }
-  @else if ($breakpoint == 'tab-desk') {
-    @media (min-width: map.get($breakpoints, 'tab')) {
+  @else if ($breakpoint == 'tab-land') {
+    @media (min-width: map.get($breakpoints, 'tab-land')) and (max-width: map.get($breakpoints, 'tiny-laptop') - 1px) {
+      @content;
+    }
+  }
+  @else if ($breakpoint == 'tiny-laptop') {
+    @media (min-width: map.get($breakpoints, 'tiny-laptop')) and (max-width: map.get($breakpoints, 'desk') - 1px) {
       @content;
     }
   }

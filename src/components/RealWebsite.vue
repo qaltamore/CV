@@ -1,22 +1,22 @@
 <script setup lang="ts">
 import AppLoader from '@/components/AppLoader.vue'
+import NavBar from '@/components/NavBar.vue'
+import HomePage from '@/components/HomePage.vue'
 </script>
 
 <template>
-  <div class="real-website">
+  <section class="real-website">
     <!-- Loader -->
     <AppLoader />
 
     <!-- Header -->
-    <header class="real-website__nav"></header>
+    <NavBar />
 
     <!-- Content -->
     <div class="real-website__content">
       <!-- Home Component -->
+      <HomePage />
       <!-- CV Component -->
-      <h1 v-html="$env.isDesk ? 'DESKTOP' : ''"></h1>
-      <h1 v-html="$env.isTab ? 'TABLET' : ''"></h1>
-      <h1 v-html="$env.isMob ? 'MOBILE' : ''"></h1>
     </div>
 
     <!-- Background -->
@@ -32,7 +32,7 @@ import AppLoader from '@/components/AppLoader.vue'
                 src="bg-leather.jpg" alt="leather"
                 cover />
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped lang="scss">
@@ -92,6 +92,10 @@ import AppLoader from '@/components/AppLoader.vue'
 
     @include breakpoint('tab') {
       bottom: tvh(16px);
+    }
+
+    @include breakpoint('tab-land') {
+      bottom: dvh(40px);
     }
   }
 

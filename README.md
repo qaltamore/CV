@@ -17,7 +17,8 @@ I made a "desktop first" mockup, because I think the most part of people who com
 
 To check my website rendering, I usually check on :
 - Desktop
-  - 1024 x 768 (iPad landscape)
+  - 1024 x 768 (iPads landscape)
+  - 1280 x 720 (Tiny Laptops)
   - 1366 x 768 (Laptops)
   - 1440 x 900 (MacBooks)
   - 1920 x 1080 (Standard)
