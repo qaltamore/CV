@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import AppLoader from '@/components/AppLoader.vue'
 import NavBar from '@/components/NavBar.vue'
-import HomePage from '@/components/HomePage.vue'
 </script>
 
 <!-- HTML -->
@@ -15,9 +14,7 @@ import HomePage from '@/components/HomePage.vue'
 
     <!-- Content -->
     <div class="real-website__content">
-      <!-- Home Component -->
-      <HomePage />
-      <!-- CV Component -->
+      <RouterView />
     </div>
 
     <!-- Background -->
@@ -43,21 +40,28 @@ import HomePage from '@/components/HomePage.vue'
   min-height: 100%;
   overflow: hidden;
 
-  /** NAV **/
-  &__nav {
-    width: 100%;
-    height: drem(80px);
-    background-image: url("@images/nav-bg.jpg");
-    background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-    box-shadow: 0 5px 4px rgba(0, 0, 0, .15);
+  /** CONTENT **/
+  &__content {
+    padding-top: drem(80px);
 
     @include breakpoint('mob') {
-      height: mvh(50px);
+      padding-top: mvh(44px);
     }
 
     @include breakpoint('tab') {
-      height: tvh(116px);
+      padding-top: tvh(104px);
+    }
+
+    @include breakpoint('tab-land') {
+      padding-top: dvh(80px);
+    }
+
+    @include breakpoint('tiny-laptop') {
+      padding-top: drem(60px);
     }
   }
 

@@ -2,6 +2,7 @@ import '@styles/main.scss';
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import router from './router'
 import App from './App.vue'
 
 // UTILS
@@ -11,17 +12,11 @@ import env from './utils/detectEnv'
 // COMPONENTS
 import AppImage from '@/components/AppImage.vue'
 
-// EARLY EXEC
-// Restore scroll at start (update when Vue Router)
-if ('scrollRestoration' in history) {
-  history.scrollRestoration = 'manual'
-}
-window.scrollTo(0, 0)
-
 // CREATE APP
 const app = createApp(App)
 
 app.use(createPinia())
+app.use(router)
 
 app.config.globalProperties.$getImg = getImg
 app.config.globalProperties.$env = env

@@ -1,4 +1,13 @@
 <script setup lang="ts">
+/*
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const goToAbout = () => {
+  router.push({ name: 'cv' })
+}
+ */
 </script>
 
 <!-- HTML -->
@@ -6,6 +15,7 @@
   <header class="nav-bar">
     <h1 class="nav-bar__page-name">Accueil</h1>
     <AppImage src="menu.svg" class="nav-bar__img-menu" />
+    <!-- <RouterLink to="/about">À propos</RouterLink> -->
   </header>
 </template>
 
@@ -13,9 +23,9 @@
 <style scoped lang="scss">
 .nav-bar {
   position: fixed;
+  top: 0;
   z-index: z('navbar');
   width: 100%;
-  height: drem(80px);
   background-image: url("@images/nav-bg.jpg");
   background-size: cover;
   box-shadow: 0 5px 4px rgba(0, 0, 0, .15);
@@ -23,16 +33,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 dvw(80px);
+  padding: dvh(12px) dvw(80px);
 
   @include breakpoint('mob') {
-    height: mvh(50px);
-    padding: 0 mvw(36px);
+    padding: mvh(6px) mvw(36px);
   }
 
   @include breakpoint('tab') {
-    height: tvh(116px);
-    padding: 0 tvw(70px);
+    padding: tvh(24px) tvw(70px);
   }
 
   &__page-name {
@@ -47,7 +55,7 @@
     }
 
     @include breakpoint('tab') {
-      width: tvw(60px);
+      width: tvw(50px);
     }
   }
 }

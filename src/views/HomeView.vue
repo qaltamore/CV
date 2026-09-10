@@ -21,7 +21,7 @@ import AppImage from '@/components/AppImage.vue'
       <p></p>
       <p>Tous les éléments sont <strong>à votre disposition</strong> si vous le souhaitez. (Figma et Git notamment)
         N’hésitez pas à me demander les ressources si vous ne les avez pas déjà.</p>
-      <p>Je finirai en vous souhaitant une <strong>excellente journée</strong>, et une <strong>bonne navigation</strong> !</p>
+      <p>Je finirai en vous souhaitant une <strong>excellente journée</strong>, et une <strong>bonne navigation</strong>&nbsp;!</p>
     </div>
 
     <div class="home__realization">
@@ -67,22 +67,26 @@ import AppImage from '@/components/AppImage.vue'
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: dvh(160px) dvw(80px) 0;
+  padding: 0 dvw(80px);
 
   @include breakpoint('mob') {
     flex-direction: column;
     gap: mvh(16px);
-    padding: mvh(60px) mvw(16px) mvh(16px);
+    padding: mvh(14px) mvw(16px) mvh(16px);
   }
 
   @include breakpoint('tab') {
     flex-direction: column;
     gap: tvh(40px);
-    padding: tvh(146px) tvw(40px) tvh(32px);
+    padding: 0 tvw(40px) tvh(32px);
+  }
+
+  @include breakpoint('tab-land') {
+    padding: 0 dvw(80px);
   }
 
   @include breakpoint('tiny-laptop') {
-    padding: dvh(140px) dvw(80px) 0;
+    padding: 0 dvw(80px);
   }
 
   & > div {
@@ -111,16 +115,24 @@ import AppImage from '@/components/AppImage.vue'
   }
 
   &__welcome {
-    padding: dvh(52px) dvw(42px);
     width: dvw(760px);
+    padding: dvh(52px) dvw(42px);
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: dvh(32px);
 
-    @include breakpoint('mob-tab') {
+    @include breakpoint('mob') {
       width: 100%;
+      padding: mvh(32px) mvw(18px);
+      gap: mvh(14px);
+    }
+
+    @include breakpoint('tab') {
+      width: 100%;
+      padding: tvh(28px) tvw(42px);
+      gap: tvh(16px);
     }
   }
 
@@ -128,8 +140,14 @@ import AppImage from '@/components/AppImage.vue'
     width: dvw(440px);
     padding: dvh(52px) dvw(30px);
 
-    @include breakpoint('mob-tab') {
+    @include breakpoint('mob') {
       width: 100%;
+      padding: mvh(32px) mvw(18px);
+    }
+
+    @include breakpoint('tab') {
+      width: 100%;
+      padding: tvh(46px) tvw(42px);
     }
 
     & h3 {
