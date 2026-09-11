@@ -93,7 +93,7 @@ import AppImage from '@/components/AppImage.vue'
     position: relative;
     background-image: url("@images/parchment-bg.jpg");
     background-size: cover;
-    border-radius: drem(20px);
+    border-radius: 20px;
   }
 
   // Transparent img background in the divs (Feather & Hourglass)

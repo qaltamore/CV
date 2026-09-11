@@ -1,21 +1,15 @@
 <script setup lang="ts">
-/*
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
-
-const goToAbout = () => {
-  router.push({ name: 'cv' })
-}
- */
+import NavMenu from './NavMenu.vue'
+import { useNavStore } from '@/stores/nav'
 </script>
 
 <!-- HTML -->
 <template>
   <header class="nav-bar">
     <h1 class="nav-bar__page-name">Accueil</h1>
-    <AppImage src="menu.svg" class="nav-bar__img-menu" />
-    <!-- <RouterLink to="/about">À propos</RouterLink> -->
+    <AppImage src="menu.svg" class="nav-bar__img-menu" @click="useNavStore().toggleMenu" />
+
+    <NavMenu />
   </header>
 </template>
 
@@ -23,8 +17,8 @@ const goToAbout = () => {
 <style scoped lang="scss">
 .nav-bar {
   position: fixed;
-  top: 0;
   z-index: z('navbar');
+  top: 0;
   width: 100%;
   background-image: url("@images/nav-bg.jpg");
   background-size: cover;
@@ -49,6 +43,7 @@ const goToAbout = () => {
 
   &__img-menu {
     width: drem(40px);
+    cursor: pointer;
 
     @include breakpoint('mob') {
       width: mvw(30px);

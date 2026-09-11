@@ -30,7 +30,21 @@ import AppImage from '@/components/AppImage.vue'
     </div>
 
     <div class="cv__middle-col">
-      <!-- Download CV btn -->
+      <div class="cv__buttons-wrapper">
+        <!-- Go to Figma -->
+        <a href="https://www.figma.com/design/lYmJcTbVC1W4phfjapLugi/Website?node-id=7-449&t=xdZMuSqXg60IrHuh-1" target="_blank" class="cv__button cv__button--secondary"><p>Figma</p></a>
+
+        <!-- Download CV btn -->
+        <a href="/cv.pdf" download class="cv__button"><h4>Télécharger CV</h4></a>
+
+        <!-- Go to Github -->
+        <a href="https://github.com/qaltamore/CV" target="_blank" class="cv__button cv__button--secondary"><p>Git</p></a>
+      </div>
+
+      <!-- Book -->
+      <div class="cv__book-wrapper">
+        <AppImage src="book.png" alt="image livre" class="cv__img-book" />
+      </div>
     </div>
 
     <div class="cv__right-col">
@@ -84,13 +98,15 @@ import AppImage from '@/components/AppImage.vue'
   justify-content: space-between;
   gap: dvw(30px);
 
+  // CONTAINERS
   &__container {
     width: dvw(330px);
     background-image: url("@images/parchment-bg.jpg");
     background-size: cover;
-    border-radius: drem(20px);
+    border-radius: 20px;
     padding: drem(18px);
     margin-bottom: drem(18px);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
 
     & p:not(:last-child) {
       margin-bottom: drem(16px);
@@ -102,6 +118,7 @@ import AppImage from '@/components/AppImage.vue'
     }
   }
 
+  // TITLES
   &__section-title {
     margin-bottom: drem(18px);
   }
@@ -115,6 +132,7 @@ import AppImage from '@/components/AppImage.vue'
     }
   }
 
+  // COORDINATES
   &__coordinate {
     height: drem(38px);
     margin-top: drem(18px);
@@ -129,6 +147,43 @@ import AppImage from '@/components/AppImage.vue'
     &-icon {
       margin-right: drem(14px);
     }
+  }
+
+  /** MIDDLE COLUMN **/
+  &__middle-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+  }
+
+  &__button {
+    padding: dvh(18px) dvw(48px);
+    background-image: url("@images/parchment-bg.jpg");
+    background-size: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+
+    color: $red-dark;
+
+    &--secondary {
+      padding: dvh(9px) dvw(24px);
+      font-weight: bold;
+    }
+  }
+
+  &__book-wrapper {
+    margin-top: dvh(70px);
+  }
+
+  &__img-book {
+    filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.25));
   }
 }
 </style>
