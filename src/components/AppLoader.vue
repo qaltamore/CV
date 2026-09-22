@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import { useLoaderStore } from '@/stores/loader'
 import { computed, onMounted, ref } from 'vue'
-import { getAudio } from '@/utils/assets.ts'
+import { useLoaderStore } from '@/stores/loader'
+import { useAudioStore } from '@/stores/audio'
 
 // CONST
 const MINIMAL_WAIT = 1000 // minimal wait on the loader, even if we loaded all the images
 const PROGRESS_TICK = 10 // interval tick
 const TOTAL_DOORS = 8 // number of door images
 const DOORS_ANIMATION_SPEED = 80 // interval tick
-const OPENING_DOOR_AUDIO = new Audio(getAudio('opening-door.mp3'))
 
 // REFS
 const activeDoor = ref(1)
@@ -50,9 +49,10 @@ const openDoor = () => {
   if (tockAnimation.value) {
     startDoorAnimation.value = true
 
-    OPENING_DOOR_AUDIO.play().catch((err) => {
-      console.warn('Audio didn\'t play : ', err)
-    })
+    useAudioStore().playAudio(false)
+    setTimeout(() => {
+      useAudioStore().changeTrack('tavern-chaos')
+    }, 1500)
 
     const interval = setInterval(() => {
       activeDoor.value++

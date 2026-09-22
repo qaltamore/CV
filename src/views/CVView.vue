@@ -13,7 +13,7 @@ import AppImage from '@/components/AppImage.vue'
         <p>Au cours de mes années d’expérience, j’ai pu me plonger dans de nombreux langages différents, mais ce sont bien ces deux-là qui ont conquit mon cœur.</p>
         <p>Je suis du genre à aimer bien faire les choses, j’ai à coeur de délivrer un travail de qualité, et rapidement.</p>
         <p>J’ai confiance en mes capacités de compréhension, d’analyse et d’apprentissage, ce qui me permet d’être serein à l’idée de rejoindre un nouveau projet ou de prendre un nouveau sujet.</p>
-        <p>J’attache aussi une grande importance à la maîtrise de mon environnement et son améliorer continue, et les sujets techniques me plaisent grandement.</p>
+        <p>J’attache aussi une grande importance à la maîtrise de mon environnement et son amélioration continue, et les sujets techniques me plaisent grandement.</p>
       </div>
 
       <!-- Hobbies -->

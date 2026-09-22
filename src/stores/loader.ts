@@ -18,10 +18,11 @@ export const useLoaderStore = defineStore('loader', () => {
   }
 
   const hasLoaded = computed((): boolean => {
-    return loadedImages.value === imagesToLoad.value
+    return imagesToLoad.value > 0 && loadedImages.value === imagesToLoad.value
   })
 
   const progress = computed((): number => {
+    if (imagesToLoad.value === 0) return 0
     return (loadedImages.value / imagesToLoad.value) * 100
   })
 

@@ -19,7 +19,6 @@ withDefaults(defineProps<Props>(), {
       <img class="app-image__img" :class="{ cover }"
            :src="$getImg(src)" :alt="alt"
            :fetchpriority="prio ? 'high' : 'auto'"
-           :loading="prio ? 'eager' : 'lazy'"
            v-tracker="$getImg(src)" />
   </div>
 </template>

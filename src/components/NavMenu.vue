@@ -5,8 +5,7 @@ import { useNavStore } from '@/stores/nav'
 <!-- HTML -->
 <template>
   <header class="nav-menu" :class="{ active: useNavStore().activeMenu }">
-    <!-- TODO : issue with this cross image (check private nav) -->
-    <!-- <AppImage src="cross.png" class="nav-menu__img-cross" @click="useNavStore().toggleMenu" /> -->
+    <AppImage src="cross.png" class="nav-menu__img-cross" @click="useNavStore().toggleMenu" />
 
     <div class="nav-menu__sections-list">
       <RouterLink to="/" @click="useNavStore().toggleMenu">

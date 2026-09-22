@@ -1,14 +1,24 @@
 <script setup lang="ts">
 import NavMenu from './NavMenu.vue'
 import { useNavStore } from '@/stores/nav'
+import { useAudioStore } from '@/stores/audio.ts'
 </script>
 
 <!-- HTML -->
 <template>
   <header class="nav-bar">
     <h1 class="nav-bar__page-name">Accueil</h1>
-    <AppImage src="menu.svg" class="nav-bar__img-menu" @click="useNavStore().toggleMenu" />
 
+    <div class="nav-bar__right-content">
+      <div class="nav-bar__audio" @click="useAudioStore().toggleAudio()">
+        <AppImage v-show="useAudioStore().getState()" src="sound-on.svg" class="nav-bar__audio--on" />
+        <AppImage v-show="!useAudioStore().getState()" src="sound-off.svg" class="nav-bar__audio--off" />
+      </div>
+
+      <AppImage src="menu.svg" class="nav-bar__img-menu" @click="useNavStore().toggleMenu" />
+    </div>
+
+    <!-- Menu view (not in the page flow) -->
     <NavMenu />
   </header>
 </template>
@@ -39,6 +49,33 @@ import { useNavStore } from '@/stores/nav'
 
   &__page-name {
     color: $red-dark;
+  }
+
+  &__right-content {
+    display: flex;
+    align-items: center;
+    gap: drem(30px);
+
+    @include breakpoint('mob') {
+      gap: mvw(16px);
+    }
+
+    @include breakpoint('tab') {
+      gap: tvw(30px);
+    }
+  }
+
+  &__audio {
+    width: drem(36px);
+    cursor: pointer;
+
+    @include breakpoint('mob') {
+      width: mvw(26px);
+    }
+
+    @include breakpoint('tab') {
+      width: tvw(44px);
+    }
   }
 
   &__img-menu {
