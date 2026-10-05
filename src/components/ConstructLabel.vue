@@ -3,7 +3,7 @@
 <!-- HTML -->
 <template>
   <div class="construct-label">
-    <p>In Construction</p>
+    <p>En Construction</p>
   </div>
 </template>
 
@@ -12,15 +12,14 @@
 .construct-label {
   position: fixed;
   z-index: z('loader') - 1;
-  top: 0;
-  right: 0;
-  padding: 20px 8px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 12px 32px;
   background-color: mediumpurple;
   color: white;
-  writing-mode: sideways-lr;
-  /* writing-mode: vertical-rl;
-  text-orientation: upright; */
-  border-radius: 0 0 0 10px;
+  border-radius: 10px 10px 0 0;
 
   pointer-events: none;
 }
