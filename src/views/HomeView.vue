@@ -10,25 +10,12 @@ import AppImage from '@/components/AppImage.vue'
       <AppImage src="feather.png" alt="image plume" class="home__img-bg-block home__img-bg-block--feather" />
 
       <!-- Div Title -->
-      <h3>Bienvenue</h3>
+      <h3 v-text="$t('home.intro.title')" />
 
       <!-- Content -->
-      <p>Mes salutations.</p>
-
-      <p>Je suis flatté d’avoir sollicité votre attention, et j’espère que votre parcours sur ce site sera plaisant.
-        Vous pourrez retrouver <strong>différentes sections</strong> à l’aide du <strong>menu burger</strong> (en haut à droite).</p>
-
-      <p>Je suis un <strong>Développeur Front VueJS</strong> et je ne suis pas Designer, loin de là. Aussi ce site n’est pas forcément le plus exceptionnel que vous croiserez, mais il est <strong>fait de ma main</strong>, de la maquette au développement, en passant par les animations.</p>
-
-      <p>Si la musique vous dérange, n'hésitez pas à la mute. Vous pouvez aussi changer la piste jouée, mais je vous laisse découvrir comment !</p>
-
-      <p>Pour vous donner une idée du temps approximatif consacré à ce dernier, je vous invite à regarder <strong>les temps inscrits sur votre droite</strong>.</p>
+      <p v-for="(text, tIdx) in $tm('home.intro.content')" :key="`home-intro-content--${tIdx}`" v-html="text" />
       <p></p>
-
-      <p>Tous les éléments sont <strong>à votre disposition</strong> si vous le souhaitez. (Figma et Git notamment)
-        N’hésitez pas à me demander les ressources si vous ne les avez pas déjà.</p>
-
-      <p>Je finirai en vous souhaitant une <strong>excellente journée</strong>, et une <strong>bonne navigation</strong>&nbsp;!</p>
+      <p v-for="(text2, tIdx2) in $tm('home.intro.content2')" :key="`home-intro-content-2--${tIdx2}`" v-html="text2" />
     </div>
 
     <div class="home__realization">
@@ -36,29 +23,14 @@ import AppImage from '@/components/AppImage.vue'
       <AppImage src="hourglass.png" alt="image sablier" class="home__img-bg-block home__img-bg-block--hourglass" />
 
       <!-- Div Title -->
-      <h3>Temps de Réalisation</h3>
+      <h3 v-text="$t('home.realization.title')" />
 
       <!-- Content -->
       <div class="home__realization-info-wrapper">
-        <!-- Mockup & Assets -->
-        <div class="home__time-info">
-          <h4 class="home__time-part-name">Maquette & Assets</h4>
-          <h4 class="home__time-spent">12h</h4>
-        </div>
-        <!-- Site -->
-        <div class="home__time-info">
-          <h4 class="home__time-part-name">Site</h4>
-          <h4 class="home__time-spent">14h</h4>
-        </div>
-        <!-- Animations -->
-        <div class="home__time-info">
-          <h4 class="home__time-part-name">Animations</h4>
-          <h4 class="home__time-spent">5h</h4>
-        </div>
-        <!-- Experiences -->
-        <div class="home__time-info">
-          <h4 class="home__time-part-name">Expériences</h4>
-          <h4 class="home__time-spent">2h</h4>
+        <div v-for="(real, rIdx) in $tm('home.realization.sections')" :key="`home-intro-real--${rIdx}`"
+             class="home__time-info">
+          <h4 class="home__time-part-name" v-text="real.label" />
+          <h4 class="home__time-spent" v-text="real.hours" />
         </div>
       </div>
     </div>
@@ -112,12 +84,34 @@ import AppImage from '@/components/AppImage.vue'
     &--feather {
       width: dvh(494px);
       bottom: dvh(74px);
+
+      @include breakpoint('mob') {
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 100%;
+      }
+
+      @include breakpoint('tab') {
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: tvw(494px);
+      }
     }
 
     &--hourglass {
       width: dvh(290px);
       bottom: dvh(24px);
       transform: translateX(-45%);
+
+      @include breakpoint('mob') {
+        width: mvw(232px);
+        bottom: mvh(14px);
+      }
+
+      @include breakpoint('tab') {
+        width: tvw(334px);
+        bottom: tvh(30px);
+      }
     }
   }
 
@@ -159,6 +153,10 @@ import AppImage from '@/components/AppImage.vue'
 
     & h3 {
       margin-bottom: dvh(64px);
+
+      @include breakpoint('mob') {
+        margin-bottom: mvh(30px);
+      }
     }
   }
 
@@ -166,6 +164,14 @@ import AppImage from '@/components/AppImage.vue'
     display: flex;
     flex-direction: column;
     gap: dvh(30px);
+
+    @include breakpoint('mob') {
+      gap: mvh(30px);
+    }
+
+    @include breakpoint('tab') {
+      gap: tvh(46px);
+    }
   }
 
   &__time-info {

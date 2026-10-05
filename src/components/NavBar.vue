@@ -7,7 +7,7 @@ import { useAudioStore } from '@/stores/audio.ts'
 <!-- HTML -->
 <template>
   <header class="nav-bar">
-    <h1 class="nav-bar__page-name">Accueil</h1>
+    <h1 class="nav-bar__page-name" v-text="useNavStore().pageName" />
 
     <div class="nav-bar__right-content">
       <div class="nav-bar__audio" @click="useAudioStore().toggleAudio()">

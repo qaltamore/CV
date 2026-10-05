@@ -26,6 +26,8 @@ withDefaults(defineProps<Props>(), {
 <!-- CSS -->
 <style scoped lang="scss">
 .app-image {
+  height: fit-content;
+
   &__img {
     width: 100%;
     -webkit-tap-highlight-color: transparent;

@@ -9,23 +9,16 @@ import AppImage from '@/components/AppImage.vue'
     <div class="cv__left-col">
       <!-- Profile -->
       <div class="cv__container">
-        <h4 class="cv__section-title">Profil</h4>
-        <p>Je suis un développeur passionné par deux principaux langages, le CSS et le JavaScript.</p>
-        <p>Au cours de mes années d’expérience, j’ai pu me plonger dans de nombreux langages différents, mais ce sont bien ces deux-là qui ont conquit mon cœur.</p>
-        <p>Je suis du genre à aimer bien faire les choses, j’ai à coeur de délivrer un travail de <strong>qualité</strong>, et <strong>rapidement</strong>.</p>
-        <p>J’ai confiance en mes capacités de <strong>compréhension</strong>, <strong>d’analyse</strong> et <strong>d’apprentissage</strong>, ce qui me permet d’être serein à l’idée de rejoindre un nouveau projet ou de prendre un nouveau sujet.</p>
-        <p>J’attache aussi une grande importance à la <strong>maîtrise</strong> de mon <strong>environnement</strong> et son <strong>amélioration continue</strong>, et les <strong>sujets techniques</strong> me plaisent grandement.</p>
+        <h4 class="cv__section-title" v-text="$t('cv.profile.title')" />
+        <p v-for="(profile, cIdx) in $tm('cv.profile.content')" :key="`cv-profile--${cIdx}`" v-html="profile" />
       </div>
 
       <!-- Hobbies - DESK -->
       <div v-if="$env.isDesk" class="cv__container">
-        <h4 class="cv__section-title">Loisirs</h4>
+        <h4 class="cv__section-title" v-text="$t('cv.hobbies.title')" />
 
         <ul>
-          <li>Craft</li>
-          <li>JDR</li>
-          <li>Écriture</li>
-          <li>Jeux de Société</li>
+          <li v-for="(hobby, hIdx) in $tm('cv.hobbies.list')" :key="`cv-hobby--${hIdx}`" v-text="hobby" />
         </ul>
       </div>
     </div>
@@ -34,13 +27,13 @@ import AppImage from '@/components/AppImage.vue'
     <div class="cv__middle-col">
       <div class="cv__buttons-wrapper">
         <!-- Go to Figma -->
-        <a href="https://www.figma.com/design/lYmJcTbVC1W4phfjapLugi/Website?node-id=7-449&t=xdZMuSqXg60IrHuh-1" target="_blank" class="cv__button cv__button--secondary"><p>Figma</p></a>
+        <a href="https://www.figma.com/design/lYmJcTbVC1W4phfjapLugi/Website?node-id=7-449&t=xdZMuSqXg60IrHuh-1" target="_blank" class="cv__button cv__button--secondary"><p v-text="$t('cv.buttons.figma')" /></a>
 
         <!-- Download CV btn -->
-        <a href="/cv.pdf" download class="cv__button"><h4>Télécharger CV</h4></a>
+        <a href="/cv.pdf" download class="cv__button"><h4 v-text="$t('cv.buttons.download')" /></a>
 
         <!-- Go to Github -->
-        <a href="https://github.com/qaltamore/CV" target="_blank" class="cv__button cv__button--secondary"><p>Git</p></a>
+        <a href="https://github.com/qaltamore/CV" target="_blank" class="cv__button cv__button--secondary"><p v-text="$t('cv.buttons.git')" /></a>
       </div>
 
       <!-- Book -->
@@ -53,49 +46,34 @@ import AppImage from '@/components/AppImage.vue'
     <div class="cv__right-col">
       <!-- Hobbies - MOB -->
       <div v-if="!$env.isDesk" class="cv__container">
-        <h4 class="cv__section-title">Loisirs</h4>
+        <h4 class="cv__section-title" v-text="$t('cv.hobbies.title')" />
 
         <ul>
-          <li>Craft</li>
-          <li>JDR</li>
-          <li>Écriture</li>
-          <li>Jeux de Société</li>
+          <li v-for="(hobby, hIdx) in $tm('cv.hobbies.list')" :key="`cv-hobby--${hIdx}`" v-text="hobby" />
         </ul>
       </div>
 
       <!-- Coordinates -->
       <div class="cv__container">
-        <h4 class="cv__section-title">Coordonnées</h4>
-        <div class="cv__coordinate">
-          <AppImage src="icons/phone.svg" alt="image de téléphone" class="cv__coordinate-icon" />
-          <p>06 09 42 51 33</p>
-        </div>
-        <div class="cv__coordinate">
-          <AppImage src="icons/mail.svg" alt="image d'e-mail" class="cv__coordinate-icon" />
-          <p>altamore.quentin@gmail.com</p>
-        </div>
-        <div class="cv__coordinate">
-          <AppImage src="icons/location.svg" alt="image de localisation" class="cv__coordinate-icon" />
-          <p>Carignan-de-Bordeaux - 33360</p>
+        <h4 class="cv__section-title" v-text="$t('cv.coordinates.title')" />
+        <div v-for="(coordinate, cIdx) in $tm('cv.coordinates.content')" :key="`cv-coord--${cIdx}`" class="cv__coordinate">
+          <AppImage :src="coordinate.icon" :alt="coordinate.alt" class="cv__coordinate-icon" />
+          <p v-text="coordinate.text" />
         </div>
       </div>
 
       <!-- Skills -->
       <div class="cv__container">
-        <h4 class="cv__section-title">Compétences</h4>
+        <h4 class="cv__section-title" v-text="$t('cv.skills.title')" />
 
-        <p class="cv__section-subtitle"><strong>Langage</strong></p>
+        <p class="cv__section-subtitle"><strong>{{ $t('cv.skills.languages.label') }}</strong></p>
         <ul>
-          <li>Vue.js</li>
-          <li>SCSS</li>
-          <li>JavaScript</li>
-          <li>TypeScript</li>
+          <li v-for="(language, lIdx) in $tm('cv.skills.languages.list')" :key="`cv-lang--${lIdx}`" v-text="language" />
         </ul>
 
-        <p class="cv__section-subtitle"><strong>Outils</strong></p>
+        <p class="cv__section-subtitle"><strong>{{ $t('cv.skills.tools.label') }}</strong></p>
         <ul>
-          <li>Git</li>
-          <li>Figma</li>
+          <li v-for="(tool, tIdx) in $tm('cv.skills.tools.list')" :key="`cv-tool--${tIdx}`" v-text="tool" />
         </ul>
       </div>
     </div>

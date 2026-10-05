@@ -7,12 +7,14 @@ import { useNavStore } from '@/stores/nav'
   <header class="nav-menu" :class="{ active: useNavStore().activeMenu }">
     <AppImage src="cross.png" class="nav-menu__img-cross" @click="useNavStore().toggleMenu" />
 
+    <!-- <div class="nav-menu__music">
+      <AppImage v-for="index of 4" :key="`music-note-${index}`"
+                :src="`music-note-${index}.svg`" :class="`nav-menu__music-notes nav-menu__music-notes--${index}`" />
+    </div> -->
+
     <div class="nav-menu__sections-list">
-      <RouterLink to="/" @click="useNavStore().toggleMenu">
-        <h1>Accueil</h1>
-      </RouterLink>
-      <RouterLink to="/cv" @click="useNavStore().toggleMenu">
-        <h1>CV</h1>
+      <RouterLink v-for="(view, vIdx) in $tm('nav.menu')" :key="`nav-${vIdx}`" :to="view.path" @click="useNavStore().toggleMenu">
+        <h1 v-text="view.label" />
       </RouterLink>
     </div>
   </header>
@@ -68,6 +70,31 @@ import { useNavStore } from '@/stores/nav'
       top: tvw(60px);
       right: tvw(60px);
       width: tvw(50px);
+    }
+  }
+
+  &__music-notes {
+    position: absolute;
+    width: 40px;
+
+    &--1 {
+      top: 20%;
+      left: 20%;
+    }
+
+    &--2 {
+      top: 40%;
+      right: 20%;
+    }
+
+    &--3 {
+      bottom: 40%;
+      right: 30%;
+    }
+
+    &--4 {
+      bottom: 20%;
+      left: 20%;
     }
   }
 
